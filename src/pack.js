@@ -11,7 +11,7 @@ const loading = packer({
   packFn = module.cwrap('pack', 'number', ['number', 'array']);
 });
 
-export class Item {
+export class Box {
   constructor(width, height, depth) {
     this.width = width;
     this.height = height;
@@ -20,11 +20,10 @@ export class Item {
 }
 
 /**
- * @param {Item[]} boxes
+ * @param {Box[]} boxes
  * @return {Promise<Number>}
  */
 export async function pack (boxes) {
-  console.log(boxes);
   if (!packFn) {
     await loading;
   }

@@ -71,10 +71,10 @@
 </template>
 
 <script>
-  import {pack, Item} from './pack'
+  import {pack, Box} from './pack'
 
   // https://www.myparcel.nl/product/dubbelgolf-verzenddoos-300-x-300-x-160-mm/
-  const defaultItem = [30, 16, 30, 3]
+  const defaultBox = [30, 16, 30, 3]
   // Dimensions are ordered in size, weight is last.
   const maxItem = [58, 78, 140, 30]
 
@@ -84,7 +84,7 @@
 
     data() {
       return {
-        items: [new Item(...defaultItem)],
+        items: [new Box(...defaultBox)],
         bins: 1,
         invalidItems: new Set(),
       }
@@ -92,7 +92,7 @@
 
     methods: {
       copyItem(item) {
-        const newItem = new Item(item.width, item.height, item.depth);
+        const newItem = new Box(item.width, item.height, item.depth);
         const index = this.items.indexOf(item);
 
         this.items.splice(index, 0, newItem);
